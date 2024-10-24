@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>JavaScript Iterables</span>
+    <p id="js Iterables"></p>
+    <span>JavaScript Set</span>
+    <p id="Set"></p>
+    <span>JavaScript Iterables,Set,Get,Maps and also Methods</span>
+    <p id="Maps"></p>
+    <script>
+    // JavaScript Iterables
+    // Create a String
+    const a = "W3Schools";
+    let text = ""
+    for (const b of a) {
+    text += b + "<br>";
+    }
+    document.getElementById("js Iterables").innerHTML = text;
+    // JavaScript Sets
+    // Create a Set
+    const letters = new Set(["a","b","c"]);
+    // Create an Iterator
+    const myIterator = letters.keys();
+    // List all Elements
+    let d = "";
+    for (const a of myIterator) {
+    d += a + "<br>";
+    }
+    document.getElementById("Set").innerHTML = d;
+
+    //JavaScript Iterables,Set,Get,Maps and also Methods
+    // Create an Array
+    const fruits = [
+    {name:"apples", quantity:300},
+    {name:"bananas", quantity:500},
+    {name:"oranges", quantity:200},
+    {name:"kiwi", quantity:150}
+    ];
+
+    // Callback function to select low volumes 
+    function myCallback({ quantity }) {
+    return quantity > 200 ? "ok" : "low";
+    }
+
+    // Group by ok and low
+    const result = Map.groupBy(fruits, myCallback);
+
+    // Display Results
+    let text1 ="These fruits are Ok: <br>";
+    for (let x of result.get("ok")) {
+    text1 += x.name + " " + x.quantity + "<br>";
+    }
+    text1 += "<br>These fruits are low: <br>";
+    for (let x of result.get("low")) {
+    text1 += x.name + " " + x.quantity + "<br>";
+    }
+    document.getElementById("Maps").innerHTML = text1;
+    console.log(result.get("ok"));
+
+    // const v=new Set(["a","d","f"]);
+    // v.size=console.log(v);
+    </script>
+</body>
+</html>
